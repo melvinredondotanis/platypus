@@ -13,6 +13,7 @@ void test_integer(void)
     assert(obj != NULL);
     assert(obj->type == TYPE_INTEGER);
     assert(obj->value.integer == 42);
+    assert(obj->id > 0);
     free(obj);
     tests_run++;
     printf("test_integer: OK\n");
@@ -26,6 +27,7 @@ void test_floating(void)
     assert(obj != NULL);
     assert(obj->type == TYPE_FLOATING);
     assert(obj->value.floating == 3.14f);
+    assert(obj->id > 0);
     free(obj);
     tests_run++;
     printf("test_floating: OK\n");
@@ -40,6 +42,7 @@ void test_string(void)
     assert(obj->type == TYPE_STRING);
     assert(strcmp(obj->value.string.value, "test") == 0);
     assert(obj->value.string.length == 4);
+    assert(obj->id > 0);
     free(obj->value.string.value);
     free(obj);
     tests_run++;
@@ -54,6 +57,7 @@ void test_boolean(void)
     assert(obj != NULL);
     assert(obj->type == TYPE_BOOLEAN);
     assert(obj->value.boolean == 1);
+    assert(obj->id > 0);
     free(obj);
     tests_run++;
     printf("test_boolean: OK\n");
@@ -66,6 +70,7 @@ void test_null(void)
     obj = new_null();
     assert(obj != NULL);
     assert(obj->type == TYPE_NULL);
+    assert(obj->id > 0);
     free(obj);
     tests_run++;
     printf("test_null: OK\n");

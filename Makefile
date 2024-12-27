@@ -31,8 +31,12 @@ $(BUILD_DIR)/%.o: $(SRC_DIR)/%.c
 $(TEST_BUILD_DIR)/%.o: $(TEST_DIR)/%.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
+# $(BUILD_DIR)/types/types.o: $(SRC_DIR)/types/types.c
+#	mkdir -p $(BUILD_DIR)/types
+#	$(CC) $(CFLAGS) -c $< -o $@
+
 # Test binaries
-$(TEST_BUILD_DIR)/%: $(TEST_BUILD_DIR)/%.o $(BUILD_DIR)/types/types.o
+$(TEST_BUILD_DIR)/%: $(TEST_BUILD_DIR)/%.o $(OBJ)
 	$(CC) $^ $(LDFLAGS) -o $@
 
 # Targets

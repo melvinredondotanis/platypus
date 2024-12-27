@@ -17,6 +17,7 @@ typedef enum object_type
 
 typedef struct object
 {
+    int id;
     object_type_t type;
     union
     {
@@ -34,7 +35,7 @@ typedef struct object
 
 object_t *new_integer(int value);
 object_t *new_floating(float value);
-object_t *new_string(char *value);
+object_t *new_string(const char *value);
 object_t *new_boolean(bool value);
 object_t *new_null(void);
 
